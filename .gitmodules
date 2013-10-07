@@ -8,5 +8,5 @@
 	path = bundle/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
 [submodule ".\\bundle\\vim-ps1"]
-	path = .\\bundle\\vim-ps1
+	path = bundle/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
