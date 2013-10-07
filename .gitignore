@@ -1,2 +1,8 @@
 # Explicit files
+Session.vim
 .netrwhist
+
+# Vim swap, backup, temp, etc. files
+*.s??
+*.un~
+*~
