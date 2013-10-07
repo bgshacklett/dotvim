@@ -19,5 +19,5 @@ set hlsearch
 set ruler
 
 if &t_Co > 16
-	set colors zenburn
+	colors grb256
 endif
