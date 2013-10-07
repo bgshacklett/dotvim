@@ -17,3 +17,7 @@ set softtabstop=4
 
 set hlsearch
 set ruler
+
+if &t_Co > 16
+	set colors zenburn
+endif
