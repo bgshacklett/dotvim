@@ -17,6 +17,17 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+" Configure Encoding
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif"
+
 " General Preferences
 set hlsearch
 set ruler
@@ -31,4 +42,4 @@ nnoremap <DEL> <Nop>
 
 " Enable, and configure hidden chars
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:»\ ,eol:¬

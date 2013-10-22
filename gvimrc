@@ -4,4 +4,4 @@ elseif has("gui_running")
   set guifont=Consolas
 endif
 
-colors zenburn
+colors grb256-custom
