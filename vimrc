@@ -28,3 +28,7 @@ endif
 
 " Disable the Delete key in normal mode
 nnoremap <DEL> <Nop>
+
+" Enable, and configure hidden chars
+set list
+set listchars=tab:▸\ ,eol:¬
