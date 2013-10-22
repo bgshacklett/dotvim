@@ -23,7 +23,7 @@ set ruler
 
 " Set colorscheme for 256 color mode.
 if &t_Co > 16
-	colors grb256
+	colors grb256-custom
 endif
 
 " Disable the Delete key in normal mode
