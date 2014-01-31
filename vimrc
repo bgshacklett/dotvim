@@ -12,10 +12,10 @@ source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " Add Go resources
-if filereadable($GOROOT."/misc/vim/readme.txt")
-	set runtimepath+=$GOROOT/misc/vim
-endif
+set runtimepath+=$GOROOT/misc/vim
+set runtimepath+=$GOPATH/src/github.com/golang/lint/misc/vim
 
+" Re-enable syntax helpers.
 syntax on
 
 filetype plugin indent on
