@@ -1,3 +1,7 @@
+" disable syntax helpers until other resources are loaded.
+syntax off
+filetype plugin indent off
+
 " Fix Windows' path oddities.
 if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
@@ -6,6 +10,11 @@ endif
 " Load Pathogen
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
+
+" Add Go resources
+if filereadable($GOROOT."/misc/vim/readme.txt")
+	set runtimepath+=$GOROOT/misc/vim
+endif
 
 syntax on
 
