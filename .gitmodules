@@ -13,3 +13,6 @@
 [submodule "bundle/vim-irblack"]
 	path = bundle/vim-irblack
 	url = https://github.com/wesgibbs/vim-irblack.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
