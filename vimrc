@@ -18,13 +18,16 @@ set runtimepath+=$GOPATH/src/github.com/golang/lint/misc/vim
 " Re-enable syntax helpers.
 syntax on
 
-filetype plugin indent on
-
 " Configure indentation
+filetype plugin indent on
 set noexpandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+" Configure Folding
+nnoremap <Space> za
+vnoremap <Space> za
 
 " Configure Encoding
 if has("multi_byte")
