@@ -6,3 +6,7 @@ Session.vim
 *.s??
 *.un~
 *~
+
+# Plugins
+bundle/YouCompleteMe
+
