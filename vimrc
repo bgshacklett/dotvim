@@ -11,10 +11,6 @@ endif
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-" Add Go resources
-set runtimepath+=$GOROOT/misc/vim
-set runtimepath+=$GOPATH/src/github.com/golang/lint/misc/vim
-
 " Re-enable syntax helpers.
 syntax on
 
