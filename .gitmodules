@@ -22,6 +22,6 @@
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule ".\\bundle\\nginx-vim-syntax"]
-	path = .\\bundle\\nginx-vim-syntax
+[submodule "bundle/nginx-vim-syntax"]
+	path = bundle/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
