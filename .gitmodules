@@ -25,3 +25,6 @@
 [submodule "bundle/nginx-vim-syntax"]
 	path = bundle/nginx-vim-syntax
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule ".\\bundle\\MatchTag"]
+	path = .\\bundle\\MatchTag
+	url = git@github.com:gregsexton/MatchTag.git
