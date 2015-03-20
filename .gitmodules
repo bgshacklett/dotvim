@@ -27,10 +27,10 @@
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
 [submodule "bundle/MatchTag"]
 	path = bundle/MatchTag
-	url = git@github.com:gregsexton/MatchTag.git
+	url = https://github.com/gregsexton/MatchTag.git
 [submodule "bundle/vim-puppet"]
 	path = bundle/vim-puppet
-	url = git@github.com:rodjek/vim-puppet.git
+	url = https://github.com/rodjek/vim-puppet.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
-	url = git@github.com:godlygeek/tabular.git
+	url = https://github.com/godlygeek/tabular.git
