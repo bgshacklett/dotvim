@@ -11,6 +11,7 @@ endif
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = ["vim-go"]
 execute pathogen#infect()
+Helptags
 
 " Re-enable syntax helpers.
 syntax on
