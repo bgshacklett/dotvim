@@ -7,6 +7,4 @@ Session.vim
 *.un~
 *~
 
-# Plugins
-bundle/YouCompleteMe
 

@@ -9,7 +9,7 @@ endif
 
 " Load Pathogen
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-let g:pathogen_disabled = ["vim-go"]
+let g:pathogen_disabled = [""]
 execute pathogen#infect()
 Helptags
 
