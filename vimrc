@@ -42,6 +42,11 @@ endif"
 set hlsearch
 set ruler
 
+" If running inside of ConEmu, 256-color support is available.
+if $ConEmuPID
+    set t_Co=256
+endif
+
 " Set colorscheme for 256 color mode.
 if &t_Co > 16
 	colors grb256-custom
