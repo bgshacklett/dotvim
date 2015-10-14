@@ -18,7 +18,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-gocode"]
 	path = bundle/vim-gocode
-	url = https://github.com:Blackrush/vim-gocode.git
+	url = https://github.com/Blackrush/vim-gocode.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -36,7 +36,7 @@
 	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
-	url = git://github.com/klen/python-mode.git
+	url = https://github.com/klen/python-mode.git
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
