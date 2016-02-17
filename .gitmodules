@@ -40,3 +40,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".\\bundle\\vim-json"]
+	path = bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
