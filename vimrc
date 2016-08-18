@@ -7,6 +7,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+" Configure Leader
+let mapleader = ","
+
 " Load Pathogen
 source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [""]
@@ -15,6 +18,9 @@ Helptags
 
 " Disable concealing double quotes in json files, because it's ridiculous
 let g:vim_json_syntax_conceal = 0
+
+" Enable CamelCaseMotion
+call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Re-enable syntax helpers.
 syntax on
