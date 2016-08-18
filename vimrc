@@ -13,6 +13,9 @@ let g:pathogen_disabled = [""]
 execute pathogen#infect()
 Helptags
 
+" Disable concealing double quotes in json files, because it's ridiculous
+let g:vim_json_syntax_conceal = 0
+
 " Re-enable syntax helpers.
 syntax on
 
