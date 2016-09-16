@@ -46,3 +46,6 @@
 [submodule "bundle/livedown"]
 	path = bundle/livedown
 	url = https://github.com/shime/vim-livedown.git
+[submodule "bundle/aws-vim"]
+	path = bundle/aws-vim
+	url = https://github.com/thecarlhall/aws-vim.git
