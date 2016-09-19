@@ -50,6 +50,7 @@ endif"
 " General Preferences
 set hlsearch
 set ruler
+set laststatus=2 " Always enable status bar
 
 " If running inside of ConEmu, 256-color support is available.
 if $ConEmuPID

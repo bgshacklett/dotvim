@@ -49,3 +49,12 @@
 [submodule "bundle/aws-vim"]
 	path = bundle/aws-vim
 	url = https://github.com/thecarlhall/aws-vim.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "bundle/vim-one.git"]
+	path = bundle/vim-one.git
+	url = https://github.com/rakr/vim-one.git
