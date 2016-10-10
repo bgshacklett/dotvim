@@ -47,6 +47,9 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif"
 
+" Airline Plugin
+let g:airline_powerline_fonts = 1
+
 " General Preferences
 set hlsearch
 set ruler

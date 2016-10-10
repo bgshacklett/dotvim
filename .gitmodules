@@ -58,3 +58,6 @@
 [submodule "bundle/vim-one.git"]
 	path = bundle/vim-one.git
 	url = https://github.com/rakr/vim-one.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
