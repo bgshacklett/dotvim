@@ -61,8 +61,12 @@ if $ConEmuPID
 endif
 
 " Set colorscheme for 256 color mode.
-if &t_Co > 16 || has('gui_running')
+if &t_Co > 16
 	colors grb256-custom
+endif
+
+if has('gui_running')
+    colors one
 endif
 
 " Disable the Delete key in normal mode
