@@ -48,7 +48,7 @@
 	url = https://github.com/shime/vim-livedown.git
 [submodule "bundle/aws-vim"]
 	path = bundle/aws-vim
-	url = https://github.com/andrewstuart/aws-vim.git
+	url = https://github.com/bgshacklett/aws-vim.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
