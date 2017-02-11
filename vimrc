@@ -35,7 +35,6 @@ set softtabstop=2
 " Configure Folding
 nnoremap <Space> za
 vnoremap <Space> za
-setl foldmethod=syntax
 
 " Configure Encoding
 if has("multi_byte")
