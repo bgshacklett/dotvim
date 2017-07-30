@@ -13,9 +13,6 @@
 [submodule "bundle/vim-irblack"]
 	path = bundle/vim-irblack
 	url = https://github.com/wesgibbs/vim-irblack.git
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-gocode"]
 	path = bundle/vim-gocode
 	url = https://github.com/Blackrush/vim-gocode.git
@@ -58,3 +55,12 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/ale"]
+	path = bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "bundle/vim-mucomplete"]
+	path = bundle/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete.git
+[submodule "bundle/ir_black"]
+	path = bundle/ir_black
+	url = https://github.com/twerth/ir_black.git
