@@ -10,12 +10,6 @@
 [submodule "bundle/vim-ps1"]
 	path = bundle/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
-[submodule "bundle/vim-irblack"]
-	path = bundle/vim-irblack
-	url = https://github.com/wesgibbs/vim-irblack.git
-[submodule "bundle/vim-gocode"]
-	path = bundle/vim-gocode
-	url = https://github.com/Blackrush/vim-gocode.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -49,9 +43,6 @@
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "bundle/vim-one.git"]
-	path = bundle/vim-one.git
-	url = https://github.com/rakr/vim-one.git
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
