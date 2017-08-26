@@ -65,13 +65,13 @@ if &t_Co > 16
 	colors grb256-custom
 endif
 
-if has('gui_running')
-    colors one
-endif
-
 " Disable the Delete key in normal mode
 nnoremap <DEL> <Nop>
 
 " Enable, and configure hidden chars
 set list
 set listchars=tab:»\ ,eol:¬
+
+if has('gui_running')
+  source $HOME/.vim/gvimrc
+:endif
