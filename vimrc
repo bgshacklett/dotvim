@@ -72,6 +72,9 @@ nnoremap <DEL> <Nop>
 set list
 set listchars=tab:»\ ,eol:¬
 
+" Enable Colorcolumn at Line 80
+set colorcolumn=80
+
 if has('gui_running')
   source $HOME/.vim/gvimrc
 :endif
