@@ -55,3 +55,15 @@
 [submodule "bundle/ir_black"]
 	path = bundle/ir_black
 	url = https://github.com/twerth/ir_black.git
+[submodule "bundle/vim-csharp"]
+	path = bundle/vim-csharp
+	url = https://github.com/OrangeT/vim-csharp.git
+[submodule "bundle/vim-dispatch"]
+	path = bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "bundle/omnisharp-vim"]
+	path = bundle/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
