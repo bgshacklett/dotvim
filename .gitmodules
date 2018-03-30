@@ -64,3 +64,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vitality"]
+	path = bundle/vitality
+	url = git@github.com:bgshacklett/vitality.vim.git
