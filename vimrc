@@ -7,6 +7,15 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+" Mac specific configs
+if has('mac')
+  " Configure automatic cursor shape for Insert and Normal Modes
+  let &t_ti.="\e[1 q"
+  let &t_SI.="\e[5 q"
+  let &t_EI.="\e[1 q"
+  let &t_te.="\e[0 q"
+endif
+
 " Configure Leader
 let mapleader = ","
 
