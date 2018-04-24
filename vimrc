@@ -63,6 +63,7 @@ let g:airline_powerline_fonts = 1
 set hlsearch
 set ruler
 set laststatus=2 " Always enable status bar
+set number
 
 " If running inside of ConEmu, 256-color support is available.
 if $ConEmuPID
