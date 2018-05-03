@@ -81,7 +81,7 @@ nnoremap <DEL> <Nop>
 
 " Enable, and configure hidden chars
 set list
-set listchars=tab:»\ ,eol:¬
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 " Enable Colorcolumn at Line 80
 set colorcolumn=80
