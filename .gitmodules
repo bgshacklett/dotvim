@@ -79,3 +79,6 @@
 [submodule "bundle/vim-packer"]
 	path = bundle/vim-packer
 	url = https://github.com/hashivim/vim-packer.git
+[submodule "bundle/SyntaxRange"]
+	path = bundle/SyntaxRange
+	url = https://github.com/vim-scripts/SyntaxRange.git
