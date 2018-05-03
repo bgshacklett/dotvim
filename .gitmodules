@@ -73,3 +73,9 @@
 [submodule "bundle/vim-chefautocmd"]
 	path = bundle/vim-chefautocmd
 	url = https://github.com/epcim/vim-chef.git
+[submodule "bundle/vim-vagrant"]
+	path = bundle/vim-vagrant
+	url = https://github.com/hashivim/vim-vagrant.git
+[submodule "bundle/vim-packer"]
+	path = bundle/vim-packer
+	url = https://github.com/hashivim/vim-packer.git
