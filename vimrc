@@ -70,9 +70,10 @@ if $ConEmuPID
     set t_Co=256
 endif
 
-" Set colorscheme for 256 color mode.
+" Set up 256 color mode.
 if &t_Co > 16
-	colors grb256-custom
+  set termguicolors
+  colors grb256-custom
 endif
 
 " Disable the Delete key in normal mode
