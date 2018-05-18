@@ -82,3 +82,6 @@
 [submodule "bundle/SyntaxRange"]
 	path = bundle/SyntaxRange
 	url = https://github.com/vim-scripts/SyntaxRange.git
+[submodule "bundle/jq.vim"]
+	path = bundle/jq.vim
+	url = https://github.com/vito-c/jq.vim.git
