@@ -85,3 +85,6 @@
 [submodule "bundle/jq.vim"]
 	path = bundle/jq.vim
 	url = https://github.com/vito-c/jq.vim.git
+[submodule "bundle/floobits-neovim"]
+	path = bundle/floobits-neovim
+	url = https://github.com/Floobits/floobits-neovim.git
