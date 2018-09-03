@@ -88,3 +88,6 @@
 [submodule "bundle/floobits-neovim"]
 	path = bundle/floobits-neovim
 	url = https://github.com/Floobits/floobits-neovim.git
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = git@github.com:vim-vdebug/vdebug.git
