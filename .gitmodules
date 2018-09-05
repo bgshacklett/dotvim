@@ -66,7 +66,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vitality"]
 	path = bundle/vitality
-	url = git@github.com:bgshacklett/vitality.vim.git
+	url = https://github.com/bgshacklett/vitality.vim.git
 [submodule "bundle/vim-terraform"]
 	path = bundle/vim-terraform
 	url = https://github.com/hashivim/vim-terraform.git
