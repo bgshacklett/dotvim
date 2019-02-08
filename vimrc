@@ -2,10 +2,37 @@
 syntax off
 filetype plugin indent off
 
-" Fix Windows' path oddities.
-if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-endif
+call plug#begin()
+Plug 'bkad/CamelCaseMotion'
+Plug 'PProvost/vim-ps1'
+Plug 'fatih/vim-go'
+Plug 'gregsexton/MatchTag'
+Plug 'rodjek/vim-puppet'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-unimpaired'
+Plug 'elzr/vim-json'
+Plug 'shime/vim-livedown'
+Plug 'bgshacklett/aws-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'w0rp/ale'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'twerth/ir_black'
+Plug 'OrangeT/vim-csharp'
+Plug 'tpope/vim-dispatch'
+"Plug 'OmniSharp/omnisharp-vim'
+Plug 'tpope/vim-surround'
+Plug 'bgshacklett/vitality.vim'
+Plug 'hashivim/vim-terraform'
+Plug 'epcim/vim-chef'
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-packer'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'vito-c/jq.vim'
+"Plug 'Floobits/floobits-neovim'
+Plug 'vim-vdebug/vdebug'
+call plug#end()
 
 " Mac specific configs
 if has('mac')
@@ -18,12 +45,6 @@ endif
 
 " Configure Leader
 let mapleader = ","
-
-" Load Pathogen
-source $HOME/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-let g:pathogen_disabled = [""]
-execute pathogen#infect()
-Helptags
 
 " Disable concealing double quotes in json files, because it's ridiculous
 let g:vim_json_syntax_conceal = 0
@@ -74,7 +95,6 @@ endif
 " Set up 256 color mode.
 if &t_Co > 16
   set termguicolors
-  colors grb256-custom
 endif
 
 " Disable the Delete key in normal mode

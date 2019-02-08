@@ -7,4 +7,5 @@ Session.vim
 *.un~
 *~
 
-
+# Plugins
+plugged/**
