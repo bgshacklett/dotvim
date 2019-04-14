@@ -30,6 +30,9 @@ Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'vito-c/jq.vim'
 Plug 'vim-vdebug/vdebug'
+Plug 'chrisbra/csv.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 call plug#end()
 
 " Mac specific configs
