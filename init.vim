@@ -108,6 +108,7 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 " Enable Colorcolumn at Line 80
 set colorcolumn=80
 
-if has('gui_running')
-  source $HOME/.vim/gvimrc
-:endif
+colors ir_black
+silent! colors grb256
+
+set inccommand=nosplit
