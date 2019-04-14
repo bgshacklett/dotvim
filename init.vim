@@ -29,7 +29,6 @@ Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-packer'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'vito-c/jq.vim'
-"Plug 'Floobits/floobits-neovim'
 Plug 'vim-vdebug/vdebug'
 call plug#end()
 
