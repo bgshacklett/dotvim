@@ -2,6 +2,31 @@
 syntax off
 filetype plugin indent off
 
+
+" Ensure plug.vim is installed
+let s:plugscript = join([
+                          \fnamemodify($MYVIMRC, ":p:h"),
+                          \'autoload',
+                          \'plug.vim',
+                        \], '/')
+let s:plugsource = join([
+                          \'https://raw.githubusercontent.com',
+                          \'junegunn',
+                          \'vim-plug',
+                          \'master',
+                          \'plug.vim',
+                        \], '/')
+if empty(glob(s:plugscript))
+  execute join([
+                 \'!curl -fLo',
+                 \s:plugscript,
+                 \'--create-dirs ',
+                 \s:plugsource,
+               \], ' ')
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Configure plugins
 call plug#begin()
 Plug 'bkad/CamelCaseMotion'
 Plug 'PProvost/vim-ps1'
