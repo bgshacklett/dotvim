@@ -47,12 +47,6 @@ endif
 " Configure Leader
 let mapleader = ","
 
-" Disable concealing double quotes in json files, because it's ridiculous
-let g:vim_json_syntax_conceal = 0
-
-" Enable CamelCaseMotion
-call camelcasemotion#CreateMotionMappings('<leader>')
-
 " Re-enable and configure syntax helpers.
 syntax on
 autocmd Syntax terraform if exists("b:current_syntax") | call SyntaxRange#Include('<<JSON', 'JSON', 'json', 'NonText')
@@ -78,9 +72,6 @@ if has("multi_byte")
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1
 endif"
-
-" Airline Plugin
-let g:airline_powerline_fonts = 1
 
 " General Preferences
 set hlsearch
