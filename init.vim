@@ -59,6 +59,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'chrisbra/csv.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'towolf/vim-helm'
 call plug#end()
 
 
@@ -69,6 +70,9 @@ if has('mac')
   let &t_SI.="\e[5 q"
   let &t_EI.="\e[1 q"
   let &t_te.="\e[0 q"
+
+  " Set the shell to `sh` for posix compatibility
+  set shell=sh
 endif
 
 " Configure Leader
@@ -105,6 +109,7 @@ set hlsearch
 set ruler
 set laststatus=2 " Always enable status bar
 set number
+set wrap! " Don't wrap long lines
 
 " If running inside of ConEmu, 256-color support is available.
 if $ConEmuPID
