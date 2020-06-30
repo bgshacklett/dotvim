@@ -60,6 +60,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'towolf/vim-helm'
+Plug 'bgshacklett/nvim-lsp', { 'branch': 'f/groovyls' }
 call plug#end()
 
 
