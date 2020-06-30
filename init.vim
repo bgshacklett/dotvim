@@ -136,3 +136,8 @@ colors ir_black
 silent! colors grb256
 
 set inccommand=nosplit
+
+
+lua <<LUA
+require'nvim_lsp'.vimls.setup{}
+LUA
