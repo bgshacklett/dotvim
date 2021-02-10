@@ -55,11 +55,14 @@ Plug 'vito-c/jq.vim'
 Plug 'vim-vdebug/vdebug'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/deoplete.nvim'
-Plug 'chrisbra/csv.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'towolf/vim-helm'
+Plug 'vim-ruby/vim-ruby'
 Plug 'neovim/nvim-lspconfig'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-commentary'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 
