@@ -1,3 +1,7 @@
+" Configure Python
+let g:python_host_prog  = $HOME . "/.pyenv/versions/neovim2/bin/python"
+let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python3"
+
 " disable syntax helpers until other resources are loaded.
 syntax off
 filetype plugin indent off
