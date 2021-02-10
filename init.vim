@@ -83,7 +83,8 @@ let mapleader = ","
 
 " Re-enable and configure syntax helpers.
 syntax on
-autocmd Syntax terraform if exists("b:current_syntax") | call SyntaxRange#Include('<<JSON', 'JSON', 'json', 'NonText')
+autocmd Syntax terraform if exists("b:current_syntax") | call SyntaxRange#Include('<<JSON', 'JSON', 'json')
+autocmd Syntax vim if exists("b:current_syntax") | call SyntaxRange#Include('<<LUA', 'LUA', 'lua')
 
 " Configure indentation
 filetype plugin indent on
