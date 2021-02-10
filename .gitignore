@@ -7,4 +7,9 @@ Session.vim
 *.un~
 *~
 
+# Plugins and other Plugged files
+plugged/**
+
+## Plug.vim is bootstrapped by init.vim; ignore autoload/plug.vim.
+autoload/plug.vim
 
