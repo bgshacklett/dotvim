@@ -77,6 +77,8 @@ Plug 'rakr/vim-one'
 Plug 'vim-python/python-syntax'
 " Plug '~/Projects/nvim-lspconfig' " Development Repo
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
