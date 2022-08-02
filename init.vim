@@ -228,6 +228,9 @@ require'lspconfig'.vimls.setup{}   -- vimscript
 require'lspconfig'.pyright.setup{  -- Python
     on_attach = on_attach,
 }
+require'lspconfig'.tsserver.setup{  -- Typescript
+    on_attach = on_attach,
+}
 require'lspconfig'.gopls.setup{    -- Go
     on_attach = on_attach,
     flags = {
