@@ -79,6 +79,7 @@ Plug 'vim-python/python-syntax'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'wfaulk/iRuler.vim'
 call plug#end()
 
 
