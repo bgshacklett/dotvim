@@ -61,7 +61,7 @@ Plug 'vim-vdebug/vdebug'
 Plug 'Yggdroot/indentLine'
 Plug 'Shougo/deoplete.nvim'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'martinda/Jenkinsfile-vim-syntax'
+" Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'towolf/vim-helm'
 Plug 'vim-ruby/vim-ruby'
 Plug 'neovim/nvim-lspconfig'
@@ -77,6 +77,7 @@ Plug 'rakr/vim-one'
 Plug 'vim-python/python-syntax'
 " Plug '~/Projects/nvim-lspconfig' " Development Repo
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'wfaulk/iRuler.vim'
@@ -104,6 +105,9 @@ syntax on
 autocmd Syntax terraform if exists("b:current_syntax") | call SyntaxRange#Include('<<JSON', 'JSON', 'json')
 autocmd Syntax terraform if exists("b:current_syntax") | call SyntaxRange#Include("'''#!/bin/sh", "'''", 'sh')
 autocmd Syntax vim if exists("b:current_syntax") | call SyntaxRange#Include('<<LUA', 'LUA', 'lua')
+autocmd Syntax sh if exists("b:current_syntax") | call SyntaxRange#Include('{%', '%}', 'jinja')
+autocmd Syntax groovy if exists("b:current_syntax") | call SyntaxRange#Include('{%', '%}', 'jinja')
+" autocmd Syntax groovy if exists("b:current_syntax") | call SyntaxRange#Include("shell('''", "''')", 'sh')
 
 
 " Syntax Highlighting
@@ -218,7 +222,14 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, bufopts)
 end
 
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("debug")
+require'lspconfig'.flow.setup{     -- JavaScript/TypeScript
+  on_attach = on_attach,
+}
+require'lspconfig'.eslint.setup{   -- JavaScript/TypeScript
+  on_attach = on_attach,
+  cmd = { 'npm', 'run', 'vscode-eslint-language-server' },
+}
 require'lspconfig'.bashls.setup{}  -- Bash
 require'lspconfig'.hls.setup{      -- Haskell
   on_attach = on_attach,
@@ -247,6 +258,7 @@ require'lspconfig'.terraformls.setup{ -- Terraform
           "-tf-log-file=/tmp/tf-exec.log",
         };
 }
+require'lspconfig'.tflint.setup{}
 require'lspconfig'.solargraph.setup{  -- Ruby
   cmd = { "bundle", "exec", "solargraph", "stdio" };
   on_attach = on_attach,
@@ -297,7 +309,7 @@ require'lspconfig'.groovyls.setup{
         XDG_DATA_HOME .. "/groovy",
         XDG_DATA_HOME .. "/java",
         'build/**',
-        'build/**/*.hpi',
+        'build/**/*.hpi',             -- Jenkins Fixture
         'build/classes/groovy/test',
         'build/classes/java/test',
       }
