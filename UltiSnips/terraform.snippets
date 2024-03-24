@@ -1,0 +1,43 @@
+snippet checkov-skip "Ignore Checkov warning" b
+# checkov:skip=$1:$2
+endsnippet
+
+snippet var
+variable "$1" {
+	description = "$2"
+	type        = $3
+	default     = $4
+}
+$0
+endsnippet
+
+snippet output
+output "$1" {
+	description = "$2"
+	value       = "$3"
+}
+$0
+endsnippet
+
+snippet required_providers "Terraform Required Providers" b
+required_providers {
+	${1:aws} = {
+		source  = "${2:hashicorp/aws}"
+		version = "${3:>=5.0}"
+	}
+}
+$0
+endsnippet
+
+snippet source-git-ssh "Module source from Git via SSH" b
+source = "git::ssh://$1"
+endsnippet
+
+snippet source-git-http "Module Source from Git via HTTP" b
+source = "git::ssh://$1"
+endsnippet
+
+snippet source-private-registry "Module source from Private Registry"
+source  = "app.terraform.io/$1"
+version = "$2"
+endsnippet
