@@ -53,9 +53,7 @@ local language_servers ={
 
   flow = {},
 
-  eslint = {
-    cmd = { 'npm', 'run', 'vscode-eslint-language-server' },
-  },
+  eslint = {},
 
   bashls = {},
 
@@ -96,7 +94,7 @@ local language_servers ={
 
   -- pylsp = {},  -- Here for plugins like mypy
 
-  tsserver = {},
+  ts_ls = {},
 
   gopls = {
     flags = {

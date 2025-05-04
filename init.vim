@@ -1,7 +1,8 @@
+"
 " Force the use of specific python venv
 " TODO: We should be able to handle this in a more graceful way for
 "       a cross-platform config
-let g:python3_host_prog = '/Users/bgshacklett/.pyenv/versions/editor/bin/python3'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/editor/bin/python3'
 
 
 " Ensure plug.vim is installed
@@ -47,7 +48,6 @@ Plug 'mfussenegger/nvim-dap'  " Debug Adapter Protocol client
 "   Plug 'MunifTanjim/nui.nvim'
 "   Plug 'rcarriga/nvim-notify'
 "   " This would be an optional dependency eventually
-"   Plug 'nvim-telescope/telescope.nvim'
 
 " GH CoPilot
 Plug 'github/copilot.vim', { 'on': 'Copilot' }
@@ -68,6 +68,7 @@ Plug 'honza/vim-snippets'
 Plug 'shime/vim-livedown'
 
 " UI
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
@@ -118,7 +119,7 @@ Plug 'wfaulk/iRuler.vim'
 
 " Diagnostics
 Plug 'folke/trouble.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " Dependency of trouble.nvim
+Plug 'nvim-tree/nvim-web-devicons' " Dependency of trouble.nvim, and others
 
 " JenkinsFile Linter
 Plug 'ckipp01/nvim-jenkinsfile-linter'
@@ -142,6 +143,11 @@ Plug 'tpope/vim-commentary'
 " File Exploring
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
+Plug 'ThePrimeagen/git-worktree.nvim'
+
+" Distraction Free Writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Legacy
 "Plug 'glacambre/firenvim', { 'tag':'0.2.13', 'do': { _ -> firenvim#install(0) } }
@@ -225,6 +231,7 @@ noremap <silent> <C-f> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
 
 " Git related configs
 let g:fugitive_bitbucketservers_domains = ['http://tnc.bitbucket.org']
+lua require('bgshacklett.git-worktree')
 
 
 " Configure FireNVim
@@ -457,3 +464,6 @@ if has("autocmd")
           \ endif
   augroup END
 endif
+
+
+runtime zen.vim
