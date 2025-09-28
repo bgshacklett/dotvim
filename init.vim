@@ -33,6 +33,9 @@ endif
 call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'mason-org/mason.nvim'
+Plug 'mason-org/mason-lspconfig.nvim'
+
 "" Java
 Plug 'mfussenegger/nvim-jdtls'  " for github.com/eclipse-jdtls/eclipse.jdt.ls
 "" Rust
@@ -69,8 +72,7 @@ Plug 'shime/vim-livedown'
 
 " UI
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
 
@@ -78,8 +80,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'borissov/fugitive-bitbucketserver'
-Plug 'airblade/vim-gitgutter'
 Plug 'rbong/vim-flog'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Syntax ranges and regions
 Plug 'vim-scripts/SyntaxRange'
@@ -232,6 +234,7 @@ noremap <silent> <C-f> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
 " Git related configs
 let g:fugitive_bitbucketservers_domains = ['http://tnc.bitbucket.org']
 lua require('bgshacklett.git-worktree')
+lua require('gitsigns').setup {}
 
 
 " Configure FireNVim
@@ -325,6 +328,10 @@ augroup LuaHighlight
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
+
+lua << LUA
+require('lualine').setup()
+LUA
 
 "Folding
 " set foldopen=hor,mark,percent,quickfix,search,tag,undo

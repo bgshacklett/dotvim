@@ -18,9 +18,15 @@ local lsp_util = require 'lspconfig.util'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+  -- Prefer LSP folding if client supports it
+  if client:supports_method('textDocument/foldingRange') then
+    local win = vim.api.nvim_get_current_win()
+    vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+  end
 
   local list_workspace_folders = function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
@@ -48,7 +54,7 @@ end
 
 -- vim.lsp.set_log_level("debug")
 
-local language_servers ={
+local language_servers = {
   taplo = {},
 
   flow = {},
@@ -207,6 +213,20 @@ local language_servers ={
 local rt = require("rust-tools")
 
 rt.setup({ server = { on_attach = on_attach, } })
+
+
+require("mason").setup()
+require("mason-lspconfig").setup {
+  automatic_enable = false,
+  automatic_installation = {
+    exclude = {
+      "groovyls",
+      "hls",
+    },
+  },
+}
+
+
 
 -- Setup lspconfig.
 local capabilities =
