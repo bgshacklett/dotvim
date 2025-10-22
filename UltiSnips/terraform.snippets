@@ -19,12 +19,10 @@ output "$1" {
 $0
 endsnippet
 
-snippet required_providers "Terraform Required Providers" b
-required_providers {
-	${1:aws} = {
-		source  = "${2:hashicorp/aws}"
-		version = "${3:>=5.0}"
-	}
+snippet required_providers_aws "Terraform Required Provider Config for AWS" b
+${1:aws} = {
+	source  = "${2:hashicorp/aws}"
+	version = "${3:>=5.0}"
 }
 $0
 endsnippet

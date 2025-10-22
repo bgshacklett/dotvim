@@ -13,7 +13,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader><space>q', vim.diagnostic.setloclist, opts)
 
 local lspconfig = require('lspconfig')
-local lsp_util = require 'lspconfig.util'
 
 
 -- Use an on_attach function to only map the following keys
@@ -96,7 +95,9 @@ local language_servers = {
     },
   },
 
-  pyright = {},  -- Main Python language server
+  basedpyright = {},  -- Main Python language server
+
+  phpactor = {},  -- PHP
 
   -- pylsp = {},  -- Here for plugins like mypy
 
@@ -165,8 +166,6 @@ local language_servers = {
   -- java_language_server = {
   --   cmd = { 'sh', '-c', 'JENV_VERSION=1.8 jenv exec /Users/brian.shacklett/Projects/java-language-server/dist/lang_server_mac.sh' }
   -- },
-
-  jdtls = {},
 
   groovyls = {
     flags = {
@@ -246,3 +245,5 @@ for server,overrides in pairs(language_servers) do
     config
   )
 end
+
+vim.diagnostic.setqflist()

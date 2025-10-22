@@ -1,9 +1,12 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
+    "terraform",
     "hcl",
     "lua",
     "vim",
     "vimdoc",
+    "php",
+    "python",
   },
 
   -- -- Install parsers synchronously (only applied to `ensure_installed`)

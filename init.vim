@@ -73,6 +73,9 @@ Plug 'shime/vim-livedown'
 " UI
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
+"   Themes
 Plug 'rakr/vim-one'
 Plug 'NLKNguyen/papercolor-theme'
 
@@ -151,14 +154,36 @@ Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-" Legacy
-"Plug 'glacambre/firenvim', { 'tag':'0.2.13', 'do': { _ -> firenvim#install(0) } }
-"Plug 'martinda/Jenkinsfile-vim-syntax'
-"Plug 'hashivim/vim-terraform'
-"Plug 'vim-vdebug/vdebug'
-"Plug 'bgshacklett/aws-vim'
-
 call plug#end()
+
+lua require("mason").setup()
+
+
+let g:UltiSnipsDebugServerEnable=0
+    " (bool) Set to 1 to Enable the debug server. If an exception occurs or
+    " a breakpoint (see below) is set, a Pdb server is launched, and you can
+    " connect to it through telnet.
+
+let g:UltiSnipsDebugHost='localhost'
+    " (string) The host the server listens on
+
+let g:UltiSnipsDebugPort=8080
+    " (int) The port the server listens to
+
+let g:UltiSnipsPMDebugBlocking=0
+    " (bool) Set whether the post mortem debugger should freeze vim.
+    " If set to 0, vim will continue to run if an exception
+    " arises while expanding a snippet and the error message describing the
+    " error will be printed with the directives to connect to the remote
+    " debug server. Internally, Pdb will run in another thread and the session
+    " will use the python trace back object stored at the moment the error
+    " was caught. The variable values and the application state may not reflect
+    " the exact state at the moment of the error.
+    " If set to 1, vim will simply freeze on the error and will resume
+    " only after quiting the debugging session (you must connect via telnet
+    " to type the Pdb's `quit` command to resume vim). However, the
+    " execution is paused right after caughting the exception, reflecting
+    " the exact state when the error occured.
 
 
 " Set updatetime to a (nearly) imperceptible value to help git-gutter and some
@@ -169,66 +194,10 @@ set updatetime=250
 " Configure Completion
 set completeopt=menu,menuone,noselect
 lua require('bgshacklett.completion')
-
+lua require('gitsigns').setup()
 
 " Configure Fern
 noremap <silent> <C-f> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
-
-
-" " Enable remote-nvim.
-" lua << EOF
-" require'remote-nvim'.setup{
-"   ssh_config = {
-"   -- Binary with this name would be searched on your runtime path and would be
-"   -- used to run SSH commands. Rename this if your SSH binary is something else
-"     ssh_binary = "ssh",
-"     -- Similar to `ssh_binary`, but for copying over files onto remote server
-"     scp_binary = "scp",
-"     -- All your SSH config file paths.
-"     ssh_config_file_paths = { "$HOME/.ssh/config" },
-"     -- This helps the plugin to understand when the underlying binary expects
-"     -- input from user. This is useful for password-based authentication and
-"     -- key-based authentication.
-"     -- Explanation for each prompt:
-"     -- match - string - This would be matched with the SSH output to decide if
-"     -- SSH is waiting for input. This is a plain match (not a regex one)
-"     -- type - string - Takes two values "secret" or "plain". "secret" indicates
-"     -- that the value you would enter is a secret and should not be logged into
-"     -- your input history
-"     -- input_prompt - string - What is the input prompt that should be shown to
-"     -- user when this match happens
-"     -- value_type - string - Takes two values "static" and "dynamic". "static"
-"     -- means that the value can be cached for the same prompt for future commands
-"     -- (e.g. your password) so that you do not have to keep typing it again and
-"     -- again. This is retained in-memory and is not logged anywhere. When you
-"     -- close the editor, it is cleared from memory. "dynamic" is for something
-"     -- like MFA codes which change every time.
-"     ssh_prompts = {
-"       {
-"         match = "password:",
-"         type = "secret",
-"         input_prompt = "Enter password: ",
-"         value_type = "static",
-"         value = "",
-"       },
-"       {
-"         match = "Password:",
-"         type = "secret",
-"         input_prompt = "Enter password: ",
-"         value_type = "static",
-"         value = "",
-"       },
-"       {
-"         match = "continue connecting (yes/no/[fingerprint])?",
-"         type = "plain",
-"         input_prompt = "Do you want to continue connection (yes/no)? ",
-"         value_type = "static",
-"         value = "",
-"       },
-"     },
-"   },
-" }
-" EOF
 
 
 " Git related configs
@@ -268,16 +237,6 @@ endif
 
 " Configure Leader
 let mapleader = ","
-
-" TODO: Figure out how to end a YAML multiline string
-"       e.g.:
-"       run: |
-"           echo 'foo'
-"           echo 'bar'
-" autocmd Syntax yaml exists("b:current_syntax") | call SyntaxRange#Include('#!/bin/sh', '??', 'sh')
-
-" autocmd Syntax groovy if exists("b:current_syntax") | call SyntaxRange#Include('{%', '%}', 'jinja')
-" autocmd Syntax groovy if exists("b:current_syntax") | call SyntaxRange#Include("shell('''", "''')", 'sh')
 
 
 " Syntax Highlighting
@@ -320,7 +279,12 @@ set relativenumber
 
 colors one
 set background=dark
-let g:airline_theme='one'
+hi ColorColumn guibg=#444444
+
+lua << END
+require('lualine').setup({})
+END
+
 
 set inccommand=nosplit
 
@@ -366,16 +330,6 @@ nnoremap q: <nop>
 " Custom commands
 :command Res source $MYVIMRC
 :command Unf %s/\s\+$//e
-
-
-" FireNvim Overrides
-" if !('g:started_by_firenvim')
-"   autocmd BufReadPost,FileReadPost * :set laststatus=0
-
-"   if &lines < 20
-"     set lines 20
-"   endif
-" endif
 
 
 " Hexmode
