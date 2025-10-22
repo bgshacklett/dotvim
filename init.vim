@@ -1,8 +1,7 @@
-"
 " Force the use of specific python venv
 " TODO: We should be able to handle this in a more graceful way for
 "       a cross-platform config
-let g:python3_host_prog = $HOME . '/.pyenv/versions/editor/bin/python3'
+let g:python3_host_prog = '/Users/bgshacklett/.pyenv/versions/editor/bin/python3'
 
 
 " Ensure plug.vim is installed
@@ -34,7 +33,6 @@ call plug#begin()
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'mason-org/mason.nvim'
-Plug 'mason-org/mason-lspconfig.nvim'
 
 "" Java
 Plug 'mfussenegger/nvim-jdtls'  " for github.com/eclipse-jdtls/eclipse.jdt.ls
@@ -51,6 +49,7 @@ Plug 'mfussenegger/nvim-dap'  " Debug Adapter Protocol client
 "   Plug 'MunifTanjim/nui.nvim'
 "   Plug 'rcarriga/nvim-notify'
 "   " This would be an optional dependency eventually
+"   Plug 'nvim-telescope/telescope.nvim'
 
 " GH CoPilot
 Plug 'github/copilot.vim', { 'on': 'Copilot' }
@@ -71,7 +70,9 @@ Plug 'honza/vim-snippets'
 Plug 'shime/vim-livedown'
 
 " UI
-Plug 'nvim-telescope/telescope.nvim'
+"   Status Line
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
 Plug 'nvim-tree/nvim-web-devicons'
@@ -83,8 +84,8 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'borissov/fugitive-bitbucketserver'
-Plug 'rbong/vim-flog'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'rbong/vim-flog'
 
 " Syntax ranges and regions
 Plug 'vim-scripts/SyntaxRange'
@@ -124,7 +125,7 @@ Plug 'wfaulk/iRuler.vim'
 
 " Diagnostics
 Plug 'folke/trouble.nvim'
-Plug 'nvim-tree/nvim-web-devicons' " Dependency of trouble.nvim, and others
+Plug 'kyazdani42/nvim-web-devicons' " Dependency of trouble.nvim
 
 " JenkinsFile Linter
 Plug 'ckipp01/nvim-jenkinsfile-linter'
@@ -148,11 +149,6 @@ Plug 'tpope/vim-commentary'
 " File Exploring
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-git-status.vim'
-Plug 'ThePrimeagen/git-worktree.nvim'
-
-" Distraction Free Writing
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -202,8 +198,6 @@ noremap <silent> <C-f> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
 
 " Git related configs
 let g:fugitive_bitbucketservers_domains = ['http://tnc.bitbucket.org']
-lua require('bgshacklett.git-worktree')
-lua require('gitsigns').setup {}
 
 
 " Configure FireNVim
@@ -292,10 +286,6 @@ augroup LuaHighlight
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
-
-lua << LUA
-require('lualine').setup()
-LUA
 
 "Folding
 " set foldopen=hor,mark,percent,quickfix,search,tag,undo
@@ -425,6 +415,3 @@ if has("autocmd")
           \ endif
   augroup END
 endif
-
-
-runtime zen.vim
