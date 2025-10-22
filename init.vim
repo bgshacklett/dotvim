@@ -190,7 +190,7 @@ set updatetime=250
 " Configure Completion
 set completeopt=menu,menuone,noselect
 lua require('bgshacklett.completion')
-lua require('gitsigns').setup()
+lua require('bgshacklett.gitsigns').setup()
 
 " Configure Fern
 noremap <silent> <C-f> :Fern . -drawer -reveal=% -toggle -width=35<CR><C-w>=
