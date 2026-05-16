@@ -1,7 +1,9 @@
 " Force the use of specific python venv
 " TODO: We should be able to handle this in a more graceful way for
 "       a cross-platform config
-let g:python3_host_prog = '/Users/bgshacklett/.pyenv/versions/editor/bin/python3'
+if executable($HOME . '/.pyenv/versions/editor/bin/python3')
+  let g:python3_host_prog = $HOME . '/.pyenv/versions/editor/bin/python3'
+endif
 
 
 " Ensure plug.vim is installed
@@ -30,18 +32,22 @@ endif
 
 " Configure plugins
 call plug#begin()
-" LSP
-Plug 'neovim/nvim-lspconfig'
+" LSP (uses built-in vim.lsp.config/enable on nvim 0.11+; per-server configs
+" live under ~/.config/nvim/lsp/<name>.lua)
 Plug 'mason-org/mason.nvim'
 
 "" Java
 Plug 'mfussenegger/nvim-jdtls'  " for github.com/eclipse-jdtls/eclipse.jdt.ls
 "" Rust
-Plug 'simrat39/rust-tools.nvim'  ", { 'for': ['rust'] }
+Plug 'mrcjkb/rustaceanvim'
 
 " Debugging
 Plug 'nvim-lua/plenary.nvim'  " LUA functions for Neovim
 Plug 'mfussenegger/nvim-dap'  " Debug Adapter Protocol client
+Plug 'nvim-neotest/nvim-nio'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'leoluz/nvim-dap-go'     " Golang debugging
+Plug 'folke/lazydev.nvim'     " See: https://github.com/rcarriga/nvim-dap-ui?tab=readme-ov-file
 
 
 " " Plug 'amitds1997/remote-nvim.nvim', { 'branch': 'feat/support-freebsd' }
@@ -133,7 +139,6 @@ Plug 'nvim-lua/plenary.nvim'  " Dependency of nvim-jenkinsfile-linter
 
 " General Syntax
 Plug 'sheerun/vim-polyglot'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " Helpers
 Plug 'tpope/vim-unimpaired'
@@ -236,7 +241,6 @@ let mapleader = ","
 " Syntax Highlighting
 let g:python_highlight_all = 1
 let g:markdown_syntax_conceal = 0  " Don't conceal characters; it's annoying.
-lua require('bgshacklett.treesitter')
 
 " Configure indentation
 set expandtab
@@ -296,7 +300,6 @@ augroup END
 "   autocmd BufWinEnter * silent! loadview
 " augroup END
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable                     " Disable folding at startup.
 
 " Import LSP Configuration
@@ -311,6 +314,24 @@ require("trouble").setup({
   -- see https://github.com/folke/trouble.nvim for details
 })
 
+
+-- Setup DAP
+require('dap-go').setup()
+require('dapui').setup()
+
+local dap, dapui = require("dap"), require("dapui")
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 LUA
 
 
