@@ -1,0 +1,65 @@
+lsp/jdtls.lua
+  edef6538e4517c52 1-41
+lsp/efm.lua
+  edef6538e4517c52 1-23
+lua/bgshacklett/lspconfig.lua
+  edef6538e4517c52 1-2,4-5,8-54,57,59-90
+lsp/powershell_es.lua
+  edef6538e4517c52 1-18
+init.vim
+  edef6538e4517c52 34-35,42
+lsp/solargraph.lua
+  edef6538e4517c52 1-12
+lsp/yamlls.lua
+  edef6538e4517c52 1-22
+lsp/flow.lua
+  edef6538e4517c52 1-14
+lsp/tflint.lua
+  edef6538e4517c52 1-6
+lsp/terraformls.lua
+  edef6538e4517c52 1-9
+lsp/eslint.lua
+  edef6538e4517c52 1-145
+lsp/hls.lua
+  edef6538e4517c52 1-12
+lsp/lua_ls.lua
+  edef6538e4517c52 1-29
+lsp/ts_ls.lua
+  edef6538e4517c52 1-109
+lsp/taplo.lua
+  edef6538e4517c52 1-6
+lsp/html.lua
+  edef6538e4517c52 1-21
+lsp/vimls.lua
+  edef6538e4517c52 1-20
+lsp/groovyls.lua
+  edef6538e4517c52 1-37
+lsp/pyright.lua
+  edef6538e4517c52 1-57
+lsp/bashls.lua
+  edef6538e4517c52 1-11
+lsp/esbonio.lua
+  edef6538e4517c52 1-11
+lsp/gopls.lua
+  edef6538e4517c52 1-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.3.4",
+  "base_commit_sha": "23afaf5b9b6cc40b921a672444db7a69f33cf2ec",
+  "prompts": {
+    "edef6538e4517c52": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7996b96a-3176-468e-b14a-936859573044",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Brian G. Shacklett",
+      "messages": [],
+      "total_additions": 755,
+      "total_deletions": 244,
+      "accepted_lines": 755,
+      "overriden_lines": 0
+    }
+  }
+}
