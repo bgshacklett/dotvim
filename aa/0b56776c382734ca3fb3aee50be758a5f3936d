@@ -1,0 +1,26 @@
+lsp/lua_ls.lua
+  s_95b6b75421788d::t_4ef62ac51bac21 21-23
+lua/bgshacklett/completion.lua
+  s_95b6b75421788d::t_3d6358632081c4 1-27
+init.vim
+  s_95b6b75421788d::t_4ef62ac51bac21 12,237
+  s_95b6b75421788d::t_3d6358632081c4 24,126
+lua/bgshacklett/lspconfig.lua
+  s_95b6b75421788d::t_4ef62ac51bac21 1-15,123,150-160
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "aa0b56776c382734ca3fb3aee50be758a5f3936d",
+  "prompts": {},
+  "sessions": {
+    "s_95b6b75421788d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fda0761-eb8f-4454-b261-a357a56b527b",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    }
+  }
+}
