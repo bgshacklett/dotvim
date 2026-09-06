@@ -9,14 +9,7 @@ endif
 " Configure plugins
 lua <<LUA
 vim.pack.add({
-  -- LSP (uses built-in vim.lsp.config/enable on nvim -1.11+; per-server configs
-  -- live under ~/.config/nvim/lsp/<name>.lua)
-  "https://github.com/mason-org/mason.nvim",
-
-  -- Java
-  "https://github.com/mfussenegger/nvim-jdtls", -- for github.com/eclipse-jdtls/eclipse.jdt.ls
-  -- Rust
-  "https://github.com/mrcjkb/rustaceanvim",
+  -- LSP, Mason, Java, Rust: see lua/bgshacklett/lspconfig.lua
 
   -- Debugging: see lua/bgshacklett/debug.lua
 
@@ -28,17 +21,7 @@ vim.pack.add({
   --   ",This would be an optional dependency eventually
   --   "https://github.com/nvim-telescope/telescope.nvim",
 
-  -- Completion
-  "https://github.com/hrsh7th/cmp-nvim-lsp",
-  "https://github.com/hrsh7th/cmp-buffer",
-  "https://github.com/hrsh7th/cmp-path",
-  "https://github.com/hrsh7th/cmp-cmdline",
-  "https://github.com/hrsh7th/nvim-cmp",
-
-  -- Snippets
-  "https://github.com/SirVer/ultisnips",
-  "https://github.com/quangnguyen30192/cmp-nvim-ultisnips",
-  "https://github.com/honza/vim-snippets",
+  -- Completion and snippets: see lua/bgshacklett/completion.lua
 
   -- Preview Tools
   "https://github.com/shime/vim-livedown",
@@ -133,34 +116,6 @@ vim.pack.add({
 })
 LUA
 
-lua require("mason").setup()
-
-
-let g:UltiSnipsDebugServerEnable=0
-    " (bool) Set to 1 to Enable the debug server. If an exception occurs or
-    " a breakpoint (see below) is set, a Pdb server is launched, and you can
-    " connect to it through telnet.
-
-let g:UltiSnipsDebugHost='localhost'
-    " (string) The host the server listens on
-
-let g:UltiSnipsDebugPort=8080
-    " (int) The port the server listens to
-
-let g:UltiSnipsPMDebugBlocking=0
-    " (bool) Set whether the post mortem debugger should freeze vim.
-    " If set to 0, vim will continue to run if an exception
-    " arises while expanding a snippet and the error message describing the
-    " error will be printed with the directives to connect to the remote
-    " debug server. Internally, Pdb will run in another thread and the session
-    " will use the python trace back object stored at the moment the error
-    " was caught. The variable values and the application state may not reflect
-    " the exact state at the moment of the error.
-    " If set to 1, vim will simply freeze on the error and will resume
-    " only after quiting the debugging session (you must connect via telnet
-    " to type the Pdb's `quit` command to resume vim). However, the
-    " execution is paused right after caughting the exception, reflecting
-    " the exact state when the error occured.
 
 
 " Set updatetime to a (nearly) imperceptible value to help git-gutter and some
@@ -168,8 +123,7 @@ let g:UltiSnipsPMDebugBlocking=0
 set updatetime=250
 
 
-" Configure Completion
-set completeopt=menu,menuone,noselect
+" Completion and snippets (nvim-cmp, UltiSnips)
 lua require('bgshacklett.completion')
 lua require('bgshacklett.gitsigns').setup()
 
@@ -280,7 +234,7 @@ set foldmethod=expr
 set foldlevel=0
 set nofoldenable                     " Disable folding at startup.
 
-" Import LSP Configuration
+" LSP, Mason, lazydev, Java, Rust
 lua require('bgshacklett.lspconfig')
 
 lua <<LUA

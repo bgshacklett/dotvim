@@ -1,3 +1,18 @@
+-- LSP: built-in vim.lsp.config/enable with per-server configs under
+-- ~/.config/nvim/lsp/<name>.lua. Mason only installs servers; enabling is
+-- done here.
+--
+-- This module owns its own plugins, including dependencies.
+
+vim.pack.add({
+  "https://github.com/mason-org/mason.nvim",      -- server installer
+  "https://github.com/folke/lazydev.nvim",        -- lua_ls workspace for Neovim config
+  "https://github.com/mfussenegger/nvim-jdtls",   -- Java (eclipse.jdt.ls)
+  "https://github.com/mrcjkb/rustaceanvim",       -- Rust (manages rust-analyzer itself)
+})
+
+require("mason").setup()
+
 -- Diagnostic mappings
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader><space>e', vim.diagnostic.open_float, opts)
@@ -105,8 +120,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(
 )
 vim.lsp.config('*', { capabilities = capabilities })
 
--- Mason is set up in init.vim and only manages installation; we enable
--- servers ourselves via vim.lsp.enable below.
+-- Mason only manages installation; we enable servers ourselves.
 -- Each name resolves to ~/.config/nvim/lsp/<name>.lua (loaded automatically
 -- by vim.lsp.enable on nvim 0.11+).
 vim.lsp.enable({
@@ -133,7 +147,17 @@ vim.lsp.enable({
   'yamlls',
 })
 
--- Rust is configured via rustaceanvim (see init.vim), which manages
+-- lazydev feeds lua_ls a workspace library of just the Neovim runtime plus
+-- the plugins a Lua file actually requires, instead of the whole runtimepath.
+-- Set up after vim.lsp.enable so its root-dir integration sees lua_ls.
+require("lazydev").setup({
+  library = {
+    -- luv types, only when a file mentions vim.uv
+    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+  },
+})
+
+-- Rust is configured via rustaceanvim, which manages
 -- rust_analyzer itself. We only need to feed it the shared capabilities and
 -- let LspAttach handle keymaps.
 vim.g.rustaceanvim = {
