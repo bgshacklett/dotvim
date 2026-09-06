@@ -97,7 +97,7 @@ vim.pack.add({
   -- Feature Enhancements
   "https://github.com/Yggdroot/indentLine", -- No longer maintained
   "https://github.com/tmhedberg/SimpylFold",
-  "https://github.com/Konfekt/FastFold",
+  -- "https://github.com/Konfekt/FastFold",
   "https://github.com/wfaulk/iRuler.vim",
 
   -- Diagnostics
@@ -281,7 +281,9 @@ augroup END
 "   " autocmd BufWinLeave * mkview
 "   autocmd BufWinEnter * silent! loadview
 " augroup END
+
 set foldmethod=expr
+set foldlevel=0
 set nofoldenable                     " Disable folding at startup.
 
 " Import LSP Configuration

@@ -33,6 +33,34 @@ function _G.lsp_context_foldexpr(lnum)
   return v
 end
 
+-- When the LSP fold ranges are recomputed, a fold that did not exist before
+-- (e.g. a block just completed with `}`) is created closed if it is deeper
+-- than 'foldlevel', even when the cursor is inside it. Re-open just enough to
+-- expose the cursor line afterwards so a rebuild never closes a fold on top of
+-- the cursor. Sibling folds and folds elsewhere are left as they are.
+--
+-- The rebuild runs in the foldingRange response handler in normal mode, and
+-- is deferred to InsertLeave while in insert mode, so both are hooked.
+local function reveal_cursor()
+  if vim.api.nvim_get_mode().mode:match('^i') then return end
+  if vim.wo.foldenable and vim.wo.foldmethod == 'expr' then
+    vim.cmd('silent! normal! zv')
+  end
+end
+
+vim.api.nvim_create_autocmd('LspRequest', {
+  callback = function(args)
+    local req = args.data.request
+    if req.type == 'complete' and req.method == 'textDocument/foldingRange' then
+      vim.schedule(reveal_cursor)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function() vim.schedule(reveal_cursor) end,
+})
+
 -- Buffer-local LSP setup runs every time a client attaches.
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
