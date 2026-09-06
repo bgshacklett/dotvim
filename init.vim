@@ -18,13 +18,7 @@ vim.pack.add({
   -- Rust
   "https://github.com/mrcjkb/rustaceanvim",
 
-  -- Debugging
-  "https://github.com/nvim-lua/plenary.nvim", -- LUA functions for Neovim
-  "https://github.com/mfussenegger/nvim-dap", -- Debug Adapter Protocol client
-  "https://github.com/nvim-neotest/nvim-nio",
-  "https://github.com/rcarriga/nvim-dap-ui",
-  "https://github.com/leoluz/nvim-dap-go",    -- Golang debugging
-  "https://github.com/folke/lazydev.nvim",    -- See: https://github.com/rcarriga/nvim-dap-ui?tab=readme-ov-file
+  -- Debugging: see lua/bgshacklett/debug.lua
 
 
   -- "https://github.com/,"amitds1997/remote-nvim.nvim", { "branch": "feat/support-freebsd" }
@@ -297,26 +291,10 @@ require("trouble").setup({
   -- your configuration comes here
   -- see https://github.com/folke/trouble.nvim for details
 })
-
-
--- Setup DAP
-require('dap-go').setup()
-require('dapui').setup()
-
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.before.attach.dapui_config = function()
-  dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-  dapui.open()
-end
-dap.listeners.before.event_terminated.dapui_config = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-  dapui.close()
-end
 LUA
+
+" Debugging (nvim-dap and friends)
+lua require('bgshacklett.debug')
 
 
 nnoremap q: <nop>
