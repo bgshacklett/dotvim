@@ -21,6 +21,18 @@ do
   })
 end
 
+-- Fold expression that keeps a fold's opening line visible. Servers such as
+-- gopls start their folding range on the `import (` / `func x() {` line, and
+-- Vim always hides a fold's first line behind the fold text. Shifting the
+-- start down one line leaves the header on screen for context.
+function _G.lsp_context_foldexpr(lnum)
+  local v = vim.lsp.foldexpr(lnum)
+  if v:sub(1, 1) == '>' then
+    return tostring(tonumber(v:sub(2)) - 1)
+  end
+  return v
+end
+
 -- Buffer-local LSP setup runs every time a client attaches.
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -30,7 +42,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Prefer LSP folding if client supports it
     if client:supports_method('textDocument/foldingRange') then
-      vim.wo[0][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      vim.wo[0][0].foldexpr = 'v:lua.lsp_context_foldexpr()'
     end
 
     local list_workspace_folders = function()

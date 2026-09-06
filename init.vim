@@ -6,156 +6,138 @@ if executable($HOME . '/.pyenv/versions/editor/bin/python3')
 endif
 
 
-" Ensure plug.vim is installed
-let s:plugscript = join([
-                          \fnamemodify($MYVIMRC, ":p:h"),
-                          \'autoload',
-                          \'plug.vim',
-                        \], '/')
-let s:plugsource = join([
-                          \'https://raw.githubusercontent.com',
-                          \'junegunn',
-                          \'vim-plug',
-                          \'master',
-                          \'plug.vim',
-                        \], '/')
-if empty(glob(s:plugscript))
-  execute join([
-                 \'!curl -fLo',
-                 \s:plugscript,
-                 \'--create-dirs ',
-                 \s:plugsource,
-               \], ' ')
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-
 " Configure plugins
-call plug#begin()
-" LSP (uses built-in vim.lsp.config/enable on nvim 0.11+; per-server configs
-" live under ~/.config/nvim/lsp/<name>.lua)
-Plug 'mason-org/mason.nvim'
+lua <<LUA
+vim.pack.add({
+  -- LSP (uses built-in vim.lsp.config/enable on nvim -1.11+; per-server configs
+  -- live under ~/.config/nvim/lsp/<name>.lua)
+  "https://github.com/mason-org/mason.nvim",
 
-"" Java
-Plug 'mfussenegger/nvim-jdtls'  " for github.com/eclipse-jdtls/eclipse.jdt.ls
-"" Rust
-Plug 'mrcjkb/rustaceanvim'
+  -- Java
+  "https://github.com/mfussenegger/nvim-jdtls", -- for github.com/eclipse-jdtls/eclipse.jdt.ls
+  -- Rust
+  "https://github.com/mrcjkb/rustaceanvim",
 
-" Debugging
-Plug 'nvim-lua/plenary.nvim'  " LUA functions for Neovim
-Plug 'mfussenegger/nvim-dap'  " Debug Adapter Protocol client
-Plug 'nvim-neotest/nvim-nio'
-Plug 'rcarriga/nvim-dap-ui'
-Plug 'leoluz/nvim-dap-go'     " Golang debugging
-Plug 'folke/lazydev.nvim'     " See: https://github.com/rcarriga/nvim-dap-ui?tab=readme-ov-file
+  -- Debugging
+  "https://github.com/nvim-lua/plenary.nvim", -- LUA functions for Neovim
+  "https://github.com/mfussenegger/nvim-dap", -- Debug Adapter Protocol client
+  "https://github.com/nvim-neotest/nvim-nio",
+  "https://github.com/rcarriga/nvim-dap-ui",
+  "https://github.com/leoluz/nvim-dap-go",    -- Golang debugging
+  "https://github.com/folke/lazydev.nvim",    -- See: https://github.com/rcarriga/nvim-dap-ui?tab=readme-ov-file
 
 
-" " Plug 'amitds1997/remote-nvim.nvim', { 'branch': 'feat/support-freebsd' }
-"   Plug 'nvim-lua/plenary.nvim'
-"   Plug 'MunifTanjim/nui.nvim'
-"   Plug 'rcarriga/nvim-notify'
-"   " This would be an optional dependency eventually
-"   Plug 'nvim-telescope/telescope.nvim'
+  -- "https://github.com/,"amitds1997/remote-nvim.nvim", { "branch": "feat/support-freebsd" }
+  --   "https://github.com/nvim-lua/plenary.nvim",
+  --   "https://github.com/MunifTanjim/nui.nvim",
+  --   "https://github.com/rcarriga/nvim-notify",
+  --   ",This would be an optional dependency eventually
+  --   "https://github.com/nvim-telescope/telescope.nvim",
 
-" GH CoPilot
-Plug 'github/copilot.vim', { 'on': 'Copilot' }
+  -- Completion
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-buffer",
+  "https://github.com/hrsh7th/cmp-path",
+  "https://github.com/hrsh7th/cmp-cmdline",
+  "https://github.com/hrsh7th/nvim-cmp",
 
-" Completion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+  -- Snippets
+  "https://github.com/SirVer/ultisnips",
+  "https://github.com/quangnguyen30192/cmp-nvim-ultisnips",
+  "https://github.com/honza/vim-snippets",
 
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'honza/vim-snippets'
+  -- Preview Tools
+  "https://github.com/shime/vim-livedown",
 
-" Preview Tools
-Plug 'shime/vim-livedown'
+  -- UI
+  --   Status Line
+  -- "https://github.com/vim-airline/vim-airline",
+  -- "https://github.com/vim-airline/vim-airline-themes",
+  "https://github.com/nvim-lualine/lualine.nvim",
+  -- If you want to have icons in your statusline choose one of these
+  "https://github.com/nvim-tree/nvim-web-devicons",
+  --   Themes
+  "https://github.com/rakr/vim-one",
+  "https://github.com/NLKNguyen/papercolor-theme",
 
-" UI
-"   Status Line
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-Plug 'nvim-lualine/lualine.nvim'
-" If you want to have icons in your statusline choose one of these
-Plug 'nvim-tree/nvim-web-devicons'
-"   Themes
-Plug 'rakr/vim-one'
-Plug 'NLKNguyen/papercolor-theme'
+  -- Git Integrations
+  "https://github.com/tpope/vim-fugitive",
+  "https://github.com/tpope/vim-rhubarb",
+  "https://github.com/borissov/fugitive-bitbucketserver",
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/rbong/vim-flog",
 
-" Git Integrations
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'borissov/fugitive-bitbucketserver'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'rbong/vim-flog'
+  -- Syntax ranges and regions
+  "https://github.com/vim-scripts/SyntaxRange",
+  "https://github.com/chrisbra/NrrwRgn",
 
-" Syntax ranges and regions
-Plug 'vim-scripts/SyntaxRange'
-Plug 'chrisbra/NrrwRgn'
+  -- Language Enhancements
+  "https://github.com/elzr/vim-json",
+  "https://github.com/rodjek/vim-puppet",
+  "https://github.com/PProvost/vim-ps1",
+  "https://github.com/Rykka/InstantRst",
+  -- --
+  "https://github.com/pedrohdz/vim-yaml-folds",
+  "https://github.com/epcim/vim-chef",
+  "https://github.com/vito-c/jq.vim",
+  "https://github.com/hashivim/vim-vagrant",
+  "https://github.com/hashivim/vim-packer",
+  "https://github.com/towolf/vim-helm",
+  "https://github.com/Glench/Vim-Jinja2-Syntax",
+  -- Python
+  "https://github.com/vim-python/python-syntax",
+  "https://github.com/Vimjas/vim-python-pep8-indent",
+  -- --
 
-" Language Enhancements
-Plug 'elzr/vim-json'
-Plug 'rodjek/vim-puppet'
-Plug 'PProvost/vim-ps1'
-Plug 'Rykka/InstantRst'
-"" C#
-Plug 'OrangeT/vim-csharp'
-Plug 'OmniSharp/omnisharp-vim'
-" --
-Plug 'pedrohdz/vim-yaml-folds'
-Plug 'epcim/vim-chef'
-Plug 'vito-c/jq.vim'
-Plug 'hashivim/vim-vagrant'
-Plug 'hashivim/vim-packer'
-Plug 'towolf/vim-helm'
-Plug 'Glench/Vim-Jinja2-Syntax'
-"" Python
-Plug 'vim-python/python-syntax'
-Plug 'Vimjas/vim-python-pep8-indent'
-" --
+  -- Terminal/Environment Integrations
+  "https://github.com/bgshacklett/vitality.vim",
 
-" Terminal/Environment Integrations
-Plug 'bgshacklett/vitality.vim'
+  "https://github.com/powerman/vim-plugin-AnsiEsc",
 
-Plug 'powerman/vim-plugin-AnsiEsc'
+  -- Feature Enhancements
+  "https://github.com/Yggdroot/indentLine", -- No longer maintained
+  "https://github.com/tmhedberg/SimpylFold",
+  "https://github.com/Konfekt/FastFold",
+  "https://github.com/wfaulk/iRuler.vim",
 
-" Feature Enhancements
-Plug 'Yggdroot/indentLine'  " No longer maintained
-Plug 'tmhedberg/SimpylFold'
-Plug 'Konfekt/FastFold'
-Plug 'wfaulk/iRuler.vim'
+  -- Diagnostics
+  "https://github.com/folke/trouble.nvim",
+  -- "https://github.com/kyazdani42/nvim-web-devicons",-- Dependency of trouble.nvim
 
-" Diagnostics
-Plug 'folke/trouble.nvim'
-Plug 'kyazdani42/nvim-web-devicons' " Dependency of trouble.nvim
+  -- JenkinsFile Linter
+  "https://github.com/ckipp01/nvim-jenkinsfile-linter",
+  "https://github.com/nvim-lua/plenary.nvim", -- Dependency of nvim-jenkinsfile-linter
 
-" JenkinsFile Linter
-Plug 'ckipp01/nvim-jenkinsfile-linter'
-Plug 'nvim-lua/plenary.nvim'  " Dependency of nvim-jenkinsfile-linter
+  -- General Syntax
+  "https://github.com/sheerun/vim-polyglot",
 
-" General Syntax
-Plug 'sheerun/vim-polyglot'
+  -- Helpers
+  "https://github.com/tpope/vim-unimpaired",
+  "https://github.com/gregsexton/MatchTag",
+  "https://github.com/godlygeek/tabular",
+  "https://github.com/bkad/CamelCaseMotion",
+  "https://github.com/tpope/vim-dispatch",
+  "https://github.com/tpope/vim-surround",
+  "https://github.com/tpope/vim-repeat",
+  "https://github.com/sagarrakshe/toggle-bool",
+  "https://github.com/tpope/vim-commentary",
 
-" Helpers
-Plug 'tpope/vim-unimpaired'
-Plug 'gregsexton/MatchTag'
-Plug 'godlygeek/tabular'
-Plug 'bkad/CamelCaseMotion'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'sagarrakshe/toggle-bool'
-Plug 'tpope/vim-commentary'
+  -- File Exploring
+  "https://github.com/lambdalisue/fern.vim",
+  "https://github.com/lambdalisue/fern-git-status.vim",
 
-" File Exploring
-Plug 'lambdalisue/fern.vim'
-Plug 'lambdalisue/fern-git-status.vim'
-
-call plug#end()
+  -- neo-tree
+  {
+    src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
+    version = vim.version.range('3')
+  },
+  -- dependencies
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
+  -- optional, but recommended
+  "https://github.com/nvim-tree/nvim-web-devicons",
+})
+LUA
 
 lua require("mason").setup()
 
