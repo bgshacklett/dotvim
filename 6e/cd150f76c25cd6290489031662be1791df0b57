@@ -1,0 +1,31 @@
+lua/bgshacklett/lspconfig.lua
+  s_f8ee74f790f684::t_ca20fef95d1fc6 24-35,45
+init.vim
+  s_2551a12c425685::t_392b1480457b99 10-140
+nvim-pack-lock.json
+  s_2551a12c425685::t_d6e49c6350c558 1-265
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "6ecd150f76c25cd6290489031662be1791df0b57",
+  "prompts": {},
+  "sessions": {
+    "s_2551a12c425685": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "29aa199a-f4a3-415a-87ba-507eedb71fe7",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    },
+    "s_f8ee74f790f684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7ceeb0f1-3ebd-4030-bd63-4ed6c6dd9aab",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    }
+  }
+}
