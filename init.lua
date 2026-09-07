@@ -1,27 +1,11 @@
 -- Configure Leader
 vim.g.mapleader = ","
 
--- Configure plugins
+-- Zero-config plugins. Anything that needs setup, options, or keymaps lives
+-- in its own module under lua/bgshacklett/ and is required further down.
 vim.pack.add({
-  -- Mason: see lua/bgshacklett/mason.lua
-  -- LSP, Java, Rust: see lua/bgshacklett/lspconfig.lua
-
-  -- Debugging: see lua/bgshacklett/debug.lua
-
-  --   "https://github.com/nvim-lua/plenary.nvim",
-  --   "https://github.com/MunifTanjim/nui.nvim",
-  --   "https://github.com/rcarriga/nvim-notify",
-  --   ",This would be an optional dependency eventually
-  --   "https://github.com/nvim-telescope/telescope.nvim",
-
-  -- Completion and snippets: see lua/bgshacklett/completion.lua
-
   -- Preview Tools
   "https://github.com/shime/vim-livedown",
-
-  -- UI (colorscheme, statusline): see lua/bgshacklett/ui.lua
-
-  -- Git: see lua/bgshacklett/git.lua
 
   -- Syntax ranges and regions
   "https://github.com/vim-scripts/SyntaxRange",
@@ -32,7 +16,6 @@ vim.pack.add({
   "https://github.com/rodjek/vim-puppet",
   "https://github.com/PProvost/vim-ps1",
   "https://github.com/Rykka/InstantRst",
-  -- --
   "https://github.com/pedrohdz/vim-yaml-folds",
   "https://github.com/epcim/vim-chef",
   "https://github.com/vito-c/jq.vim",
@@ -43,7 +26,6 @@ vim.pack.add({
   -- Python
   "https://github.com/vim-python/python-syntax",
   "https://github.com/Vimjas/vim-python-pep8-indent",
-  -- --
 
   -- Terminal/Environment Integrations
   "https://github.com/bgshacklett/vitality.vim",
@@ -69,8 +51,6 @@ vim.pack.add({
   "https://github.com/tpope/vim-repeat",
   "https://github.com/sagarrakshe/toggle-bool",
   "https://github.com/tpope/vim-commentary",
-
-  -- File explorer: see lua/bgshacklett/explorer.lua
 })
 
 -- Completion and snippets (nvim-cmp, UltiSnips)
