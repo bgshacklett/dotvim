@@ -1,0 +1,32 @@
+init.lua
+  s_95b6b75421788d::t_f3482bb4313c48 22,131-132
+  s_95b6b75421788d::t_d67d0981c43c83 24,78-80
+  s_95b6b75421788d::t_e4bc6ab3fcfdbc 73,82-83
+  s_95b6b75421788d::t_b348c14fe576a9 1-21,23,25-72,74-77,81,84-130,133-158
+lua/bgshacklett/git.lua
+  s_95b6b75421788d::t_d67d0981c43c83 1-28
+lua/bgshacklett/explorer.lua
+  s_95b6b75421788d::t_e4bc6ab3fcfdbc 1-14
+lua/bgshacklett/ui.lua
+  s_95b6b75421788d::t_f3482bb4313c48 1-25
+lua/bgshacklett/lspconfig.lua
+  s_95b6b75421788d::t_517da9471ed3f5 11,165-168
+nvim-pack-lock.json
+  s_95b6b75421788d::t_7f9cd18bf1c22a 111-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "c1fc0fd488bd8459f5d00f199939dd9e0df395c8",
+  "prompts": {},
+  "sessions": {
+    "s_95b6b75421788d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fda0761-eb8f-4454-b261-a357a56b527b",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    }
+  }
+}
