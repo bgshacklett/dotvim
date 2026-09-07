@@ -1,0 +1,27 @@
+init.lua
+  s_95b6b75421788d::t_a902bbc76cea57 14-17,20
+  s_95b6b75421788d::t_1ed009848f3e76 69-91
+  s_95b6b75421788d::t_d38b7afac3b51b 126-127
+  s_95b6b75421788d::t_40f2b2a101b4a2 92,128
+lua/bgshacklett/treesitter.lua
+  s_95b6b75421788d::t_3a0d741baf1fbb 15
+  s_95b6b75421788d::t_d38b7afac3b51b 1-14,16-60
+nvim-pack-lock.json
+  s_95b6b75421788d::t_d38b7afac3b51b 119-123
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "2faed4d43460fb03a49624e40fbfdeb211cc30a0",
+  "prompts": {},
+  "sessions": {
+    "s_95b6b75421788d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fda0761-eb8f-4454-b261-a357a56b527b",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    }
+  }
+}
