@@ -11,21 +11,13 @@ vim.pack.add({
   "https://github.com/vim-scripts/SyntaxRange",
   "https://github.com/chrisbra/NrrwRgn",
 
-  -- Language Enhancements
-  "https://github.com/elzr/vim-json",
-  "https://github.com/rodjek/vim-puppet",
-  "https://github.com/PProvost/vim-ps1",
-  "https://github.com/Rykka/InstantRst",
-  "https://github.com/pedrohdz/vim-yaml-folds",
-  "https://github.com/epcim/vim-chef",
-  "https://github.com/vito-c/jq.vim",
+  -- Language Enhancements. vim-polyglot (below) bundles json, puppet, ps1, jq,
+  -- helm, python-syntax and python-pep8-indent, so those are not listed here.
+  "https://github.com/Rykka/InstantRst",             -- reST live preview
+  "https://github.com/pedrohdz/vim-yaml-folds",      -- folding
   "https://github.com/hashivim/vim-vagrant",
   "https://github.com/hashivim/vim-packer",
-  "https://github.com/towolf/vim-helm",
-  "https://github.com/Glench/Vim-Jinja2-Syntax",
-  -- Python
-  "https://github.com/vim-python/python-syntax",
-  "https://github.com/Vimjas/vim-python-pep8-indent",
+  "https://github.com/Glench/Vim-Jinja2-Syntax",     -- also detects *.j2, which core doesn't
 
   -- Terminal/Environment Integrations
   "https://github.com/bgshacklett/vitality.vim",
@@ -37,9 +29,6 @@ vim.pack.add({
   "https://github.com/tmhedberg/SimpylFold",
   -- "https://github.com/Konfekt/FastFold",
   "https://github.com/wfaulk/iRuler.vim",
-
-  -- General Syntax
-  "https://github.com/sheerun/vim-polyglot",
 
   -- Helpers
   "https://github.com/tpope/vim-unimpaired",
@@ -75,8 +64,31 @@ if vim.fn.has('mac') == 1 then
 end
 
 -- Syntax Highlighting
-vim.g.python_highlight_all = 1
 vim.g.markdown_syntax_conceal = 0  -- Don't conceal characters; it's annoying.
+
+-- Filetype detection. Helm templates are YAML or .tpl files that use Go
+-- template syntax with Helm's built-in objects, so detect them by content
+-- rather than by path. Returning nil falls through to normal detection.
+local function detect_helm(_, bufnr)
+  local markers = {
+    "%.Values%f[%W]", "%.Release%f[%W]", "%.Chart%f[%W]", "%.Capabilities%f[%W]",
+    "%f[%w]include%s+\"", "%f[%w]toYaml%f[%W]", "%f[%w]tpl%s+\"",
+  }
+  for _, line in ipairs(vim.api.nvim_buf_get_lines(bufnr, 0, 50, false)) do
+    if line:find("{{", 1, true) then
+      for _, m in ipairs(markers) do
+        if line:find(m) then return "helm" end
+      end
+    end
+  end
+end
+
+vim.filetype.add({
+  pattern = {
+    [".*%.ya?ml"] = detect_helm,
+    [".*%.tpl"] = detect_helm,
+  },
+})
 
 -- Configure indentation
 vim.opt.expandtab=true
@@ -110,6 +122,9 @@ vim.opt.relativenumber = true
 
 -- Colorscheme, statusline, appearance
 require('bgshacklett.ui')
+
+-- Treesitter parsers and highlighting
+require('bgshacklett.treesitter')
 
 
 vim.opt.inccommand="nosplit"
