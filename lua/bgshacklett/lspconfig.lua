@@ -8,6 +8,7 @@ vim.pack.add({
   "https://github.com/folke/lazydev.nvim",        -- lua_ls workspace for Neovim config
   "https://github.com/mfussenegger/nvim-jdtls",   -- Java (eclipse.jdt.ls)
   "https://github.com/mrcjkb/rustaceanvim",       -- Rust (manages rust-analyzer itself)
+  "https://github.com/folke/trouble.nvim",        -- diagnostics / references / quickfix list UI
 })
 
 -- Diagnostic mappings
@@ -161,3 +162,7 @@ vim.g.rustaceanvim = {
     capabilities = capabilities,
   },
 }
+
+-- Trouble: a list UI for diagnostics, references, and the quickfix and
+-- location lists. Reached via :Trouble; no keymaps yet.
+require("trouble").setup({})
