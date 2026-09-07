@@ -9,7 +9,8 @@ endif
 " Configure plugins
 lua <<LUA
 vim.pack.add({
-  -- LSP, Mason, Java, Rust: see lua/bgshacklett/lspconfig.lua
+  -- Mason: see lua/bgshacklett/mason.lua
+  -- LSP, Java, Rust: see lua/bgshacklett/lspconfig.lua
 
   -- Debugging: see lua/bgshacklett/debug.lua
 
@@ -234,7 +235,10 @@ set foldmethod=expr
 set foldlevel=0
 set nofoldenable                     " Disable folding at startup.
 
-" LSP, Mason, lazydev, Java, Rust
+" Mason installs external tools; required before its consumers below
+lua require('bgshacklett.mason')
+
+" LSP, lazydev, Java, Rust
 lua require('bgshacklett.lspconfig')
 
 lua <<LUA
