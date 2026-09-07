@@ -1,0 +1,19 @@
+init.lua
+  s_95b6b75421788d::t_7d0c6d436d9e21 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "6a901b7fc8bd48a51fda6244e24d9ada27a7a614",
+  "prompts": {},
+  "sessions": {
+    "s_95b6b75421788d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fda0761-eb8f-4454-b261-a357a56b527b",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Brian G. Shacklett <brian@digital-traffic.net>"
+    }
+  }
+}
